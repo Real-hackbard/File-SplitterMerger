@@ -19,5 +19,15 @@ A file splitter/merger tool splits large files into smaller parts to facilitate 
 
 </br>
 
+# Main Functions:
 
+* Splitting:
+    * Splits a large file into several smaller files.
+    * Possible criteria include the number of files or a fixed file size (in bytes, KB, or MB).
+    * Offers options for the filename and location.
+
+* Merging:
+    * Rejoins multiple individual parts into a single, original file.
+    * Requires that the files to be merged were previously split using the same tool and that they are in the correct order.
+    * Can sort the files to be merged by name, date, or size.
 
