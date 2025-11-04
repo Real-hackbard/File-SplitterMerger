@@ -48,3 +48,12 @@ A file splitter/merger tool splits large files into smaller parts to facilitate 
 
 * Self-Merging Files: Some splitters can create a small, standalone executable program that can re-merge the parts without the original splitter software.
 
+# File Formats:
+Filename extensions may be considered a type of [metadata](https://en.wikipedia.org/wiki/Metadata). They are commonly used to imply information about the way data might be stored in the file. The exact definition, giving the criteria for deciding what part of the file name is its extension, belongs to the rules of the specific [file system](https://en.wikipedia.org/wiki/File_system) used
+
+```pascal
+%f%  : Determination of file names
+%n%  : Determining file names without file extensions
+%x%  : Determining file extensions such as rar
+%p%  : Determination of specific data numbering
+```
