@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.649,D:\Incoming\[.WORK]\FileSplitter.Pro\FileSplitter.Pro\FileSplitterMerger.dproj=D:\Incoming\[.WORK]\FileSplitter.Pro\FileSplitter.Pro\Spoin.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.978,D:\Incoming\[.WORK]\FileSplitter.Pro\FileSplitter.Pro\Unit1.dfm=D:\Incoming\[.WORK]\FileSplitter.Pro\FileSplitter.Pro\MainUnit.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.978,D:\Incoming\[.WORK]\FileSplitter.Pro\FileSplitter.Pro\Unit1.pas=D:\Incoming\[.WORK]\FileSplitter.Pro\FileSplitter.Pro\MainUnit.pas</Transaction>
+  </Transactions>
+</BorlandProject>
