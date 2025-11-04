@@ -133,3 +133,7 @@ sFormat := StringReplace(AFormat, '%f%', sTarget,
       DeleteFile(Format(sFormat, [iPart]));
 end;
 ```
+
+</br>
+
+To view the parts, e.g. with WinRAR, a numerical reference must be entered and only the file with the number ```*.001``` can be viewed. This file is stored as an archive file.
