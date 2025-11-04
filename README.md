@@ -57,3 +57,76 @@ Filename extensions may be considered a type of [metadata](https://en.wikipedia.
 %x%  : Determining file extensions such as rar
 %p%  : Determination of specific data numbering
 ```
+
+As many parameters as you can add to create your own file formats will be determined in this section. The parameters must consist of letters and be delimited by a percent sign.
+
+```pascal
+procedure TForm1.SplitFile(const AFile, AFolder, AFormat: string);
+var
+  i: Integer;
+  sTarget, sFormat: string;
+  fsSource, fsTarget: TFileStream;
+  iTotal, iChunk: Int64;
+  iPart: Integer;
+begin
+  StatusBar1.SetFocus;
+  ProgressBar1.Max := FSplitParts;
+  ProgressBar1.Position := 0;
+  StatusBar1.Panels[5].Text := 'Splitting wait..';
+  sTarget := ExtractFileName(AFile);
+
+sFormat := StringReplace(AFormat, '%f%', sTarget,
+                           [rfReplaceAll, rfIgnoreCase]);
+  sFormat := StringReplace(sFormat, '%n%', ChangeFileExt(sTarget, ''),
+                           [rfReplaceAll, rfIgnoreCase]);
+  sFormat := StringReplace(sFormat, '%x%', Copy(ExtractFileExt(sTarget), 2, MaxInt),
+                           [rfReplaceAll, rfIgnoreCase]);
+
+  // intigrate here Formats how much so you want
+
+  i := Pos('%p:', LowerCase(sFormat));
+
+  if i > 0 then begin 
+    Delete(sFormat, i, 3);
+    iPart := PosEx('%', sFormat, i);
+    i := StrToIntDef(Copy(sFormat, i, iPart - i), 3);
+    Delete(sFormat, i, iPart - i + 1);
+  end else begin
+    sTarget := '%0:.' + IntToStr( Max(3, Length(IntToStr(FSplitParts))) ) + 'd';
+    sFormat := StringReplace(sFormat, '%p%', sTarget,
+                             [rfReplaceAll, rfIgnoreCase]);
+  end;
+
+  sFormat := IncludeTrailingPathDelimiter(AFolder) + sFormat;
+  iPart := -1;
+  fsSource := TFileStream.Create(AFile, fmOpenRead, fmShareDenyWrite);
+
+  try
+    iTotal := fsSource.Size;
+    while (iTotal > 0) and not FCancel do begin
+      Inc(iPart);
+      sTarget := Format(sFormat, [iPart]);
+      iChunk := Min(FSplitPartSize, iTotal);
+      iTotal := iTotal - iChunk;
+      fsTarget := TFileStream.Create(sTarget, fmCreate, fmShareExclusive);
+
+      try
+        fsTarget.CopyFrom(fsSource, iChunk);
+      finally
+        fsTarget.Free;
+      end;
+
+      ProgressBar1.StepIt;
+      StatusBar1.Panels[3].Text := IntToStr(ProgressBar1.Position);
+      Application.ProcessMessages;
+    end;
+    FDone := not FCancel;
+  finally
+    fsSource.Free;
+    StatusBar1.Panels[5].Text := 'finsh';
+  end;
+  if FCancel then
+    for i := iPart downto 0 do
+      DeleteFile(Format(sFormat, [iPart]));
+end;
+```
