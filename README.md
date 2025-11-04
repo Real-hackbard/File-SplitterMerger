@@ -11,10 +11,13 @@
 
 </br>
 
+A file splitter/merger tool splits large files into smaller parts to facilitate transfer and then reassembles these parts into the original whole. Such tools are useful for files with size limitations or that are difficult to send. You can split files by size or number of parts and adjust the order in which the parts are merged.
 
+</br>
 
+![FileSplitterMerger](https://github.com/user-attachments/assets/f7200d6a-8997-4061-856e-3ab195e10ddc)
 
-
+</br>
 
 
 
