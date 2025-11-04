@@ -82,7 +82,7 @@ sFormat := StringReplace(AFormat, '%f%', sTarget,
   sFormat := StringReplace(sFormat, '%x%', Copy(ExtractFileExt(sTarget), 2, MaxInt),
                            [rfReplaceAll, rfIgnoreCase]);
 
-  // intigrate here Formats how much so you want
+  // intigrate here Formats how much you want
 
   i := Pos('%p:', LowerCase(sFormat));
 
