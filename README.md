@@ -83,6 +83,9 @@ sFormat := StringReplace(AFormat, '%f%', sTarget,
                            [rfReplaceAll, rfIgnoreCase]);
 
   // intigrate here Formats how much you want
+  // Example:
+  // sFormat := StringReplace(sFormat, '%a%', [Enter the function to be edited here.], ''),
+                           [rfReplaceAll, rfIgnoreCase]);
 
   i := Pos('%p:', LowerCase(sFormat));
 
