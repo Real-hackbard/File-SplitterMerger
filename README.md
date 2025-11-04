@@ -31,3 +31,20 @@ A file splitter/merger tool splits large files into smaller parts to facilitate 
     * Requires that the files to be merged were previously split using the same tool and that they are in the correct order.
     * Can sort the files to be merged by name, date, or size.
 
+# Applications
+
+* Transferring large files: Suitable for splitting very large files (e.g., videos or compressed archives) to send via email or other services that have size limitations.
+* Document management: Special tools are available for PDF files, allowing you to merge multiple PDFs into one or split a large PDF file into individual pages.
+* Format-specific tools: There are also special tools for other file formats, such as vCards, for managing contacts.
+* Important note: To correctly merge a file, all parts created with the same splitter tool must be used and merged in the correct order.
+
+# Special Features
+
+* File Type Independence: General file splitters and mergers can process any file type by simply cutting and joining binary data. However, the resulting parts may not be usable until after merging.
+
+* Specialized Tools: There are also specialized tools, particularly for PDFs, that offer features such as extracting specific page ranges or adjusting different page sizes during merging.
+
+* Integrity Checking: Some tools offer automatic integrity checks (e.g., using CRC32 checksums) to ensure that the files are not corrupted during merging.
+
+* Self-Merging Files: Some splitters can create a small, standalone executable program that can re-merge the parts without the original splitter software.
+
